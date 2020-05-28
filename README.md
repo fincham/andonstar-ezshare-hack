@@ -16,9 +16,11 @@ Once you have connected the SD card to your Linux computer and identified which 
 
     # xzcat sd-card.img.xz > /dev/sdx
 
-Make sure you write it to the whole device and not a partition, as the image contains a partition table. The extracted image will fit on a 16GB SD card though you may be able to resize it if you write it to a larger card.
+Make sure you write it to the whole device and not a partition, as the image contains a partition table. The extracted image will fit on a 16GB SD card (specifically 15931539456 bytes long) though you may be able to resize it if you write it to a larger card.
 
 Writing this image will erase any existing files on the SD card, though should preserve the WiFi settings.
+
+The FAT fileystem in this image was made by an Andonstar microscope itself for maximum compatibility. This does mean it's probably not well aligned for use on flash storage etc but it seems to work just fine.
 
 ## Resetting the ez Share card to default settings
 
