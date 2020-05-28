@@ -4,7 +4,7 @@ I wanted to use an LZeal brand "ez Share" WiFi SD card (https://www.aliexpress.c
 
 The ez Share card can only read photos located in a directory called `DCIM` in the root of the card's FAT32 partition. Unfortunately, the Andonstar microscope can only write photos in to a directory called `CARDV`.
 
-To solve this problem I created a special FAT32 filesystem image to place on the SD card of the device which includes both `DCIM` and `CARDV` directories, however both of these entries in the FAT directory table point to the same start cluster. This means that when the microscope writes files in to the `CARDV` directory, the WiFi SD card firmware can read them immediately from the `DCIM` directory. Only a single copy of the file is stored.
+To solve this problem I created a special FAT32 filesystem image to place on the SD card of the device which includes both `DCIM` and `CARDV` directories - however both of these entries in the FAT directory table point to the same start cluster. This means that when the microscope writes files in to the `CARDV` directory, the WiFi SD card firmware can read them immediately from the `DCIM` directory. Only a single copy of the file is stored.
 
 Once this image is written to the SD card it allows the microscope to operate normally and for the stored images to be readable over WiFi. If the "format" option on the microscope is used however, the special filesystem image is lost and will need to be re-written.
 
@@ -20,7 +20,7 @@ Make sure you write it to the whole device and not a partition, as the image con
 
 Writing this image will erase any existing files on the SD card, though should preserve the WiFi settings.
 
-## Resetting the LZeal ez Share card to default settings
+## Resetting the ez Share card to default settings
 
 If you need to reset the card to its default settings (SSID of `ez Share` and password of `88888888`) then simply delete the empty `ezshare.cfg` file from the card and power cycle it.
 
